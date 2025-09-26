@@ -26,7 +26,14 @@ connectDb()
 
 const app = express()
 
-app.use(cors());
+app.use(cors({
+  origin: "https://shopit-ecommerce-mern-frontend.vercel.app", // your frontend domain on Vercel
+  credentials: true, // allow cookies to be sent
+  methods: ["GET", "POST", "PUT", "DELETE"], // allowed methods
+  allowedHeaders: ["Content-Type", "Authorization"], // optional
+}));
+
+// app.use(cors());
 app.use(express.json({limit:"10mb"}))
 app.use(express.urlencoded({ extended: true })); // ✅ For form-data
 app.use(cookieParser())
