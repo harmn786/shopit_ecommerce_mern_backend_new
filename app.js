@@ -25,8 +25,6 @@ process.on("uncaughtException", (err)=>{
 connectDb()
 
 const app = express()
-import cors from "cors";
-
 app.use(cors({
   origin: "https://shopit-ecommerce-mern-frontend.vercel.app", // your frontend domain on Vercel
   credentials: true, // allow cookies to be sent
